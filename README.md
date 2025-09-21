@@ -1,12 +1,6 @@
 # POWER-BI-credit-card-dashboard
-a Credit Card Customer Report Dashboard that brings credit card operations to life through data.
 
-💡 Why I built this:
-Credit cards aren’t just about transactions — they represent customer journeys, spending habits, and lifestyle preferences. My goal was to design a dashboard that doesn’t just display numbers, but helps stakeholders see the story behind the data.
-
-📊 How I built it:
-
-a Credit Card Customer Report Dashboard that brings credit card operations to life through data.
+ Credit Card Customer Report Dashboard that brings credit card operations to life through data.
 
 💡 Why I built this:
 Credit cards aren’t just about transactions — they represent customer journeys, spending habits, and lifestyle preferences. My goal was to design a dashboard that doesn’t just display numbers, but helps stakeholders see the story behind the data.
