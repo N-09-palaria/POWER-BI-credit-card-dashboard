@@ -45,8 +45,28 @@ Swipe and online transactions lead in usage compared to chip-based payments.
 
 Texas, New York, and California stand out as top-performing states.
 
-🚀 My biggest learning:
-This project wasn’t only about SQL or Power BI — it was about creating a system that can scale and update automatically, ensuring real-time business insights. Turning raw data into a living, breathing dashboard gave me a fresh perspective on how analytics drives smarter financial decisions.
+🚀 Tech Stack
 
-I’m grateful for the chance to sharpen my skills in SQL, PostgreSQL, DAX, automation, and dashboard design, and I look forward to applying these learnings in future roles.
+Database: PostgreSQL
 
+Visualization Tool: Power BI
+
+Languages: SQL, DAX
+
+Data Source: CSV files
+
+📷 Dashboard Snapshot
+
+
+
+💡 Key Learning
+
+This project was not just about building visuals but about end-to-end data handling:
+
+From data import → SQL processing → DAX calculations → insightful dashboards.
+
+Learned how to automate reporting by continuously feeding new data into PostgreSQL.
+
+🙌 Feedback & Collaboration
+
+I’d love your feedback on this project. Feel free to fork, raise issues, or share suggestions!
