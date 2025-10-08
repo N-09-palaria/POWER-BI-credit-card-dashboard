@@ -1,89 +1,138 @@
-# POWER-BI-credit-card-dashboard
-
- Credit Card Customer Report Dashboard that brings credit card operations to life through data.
-
-💡 Why I built this:
-Credit cards aren’t just about transactions — they represent customer journeys, spending habits, and lifestyle preferences. My goal was to design a dashboard that doesn’t just display numbers, but helps stakeholders see the story behind the data.
-
-📊 How I built it:
-
-⚙️ Step 1: Import Data to PostgreSQL Database
-
-Prepare CSV Files – 
-credit_card.csv
-customer.csv
-cust_add.csv (for additional customer data to check real-time functionality)
-cc_add.csv (for additional credit card data to check real-time functionality)
-
-Create Tables in SQL – 
-CREATE TABLE cust_detail (
-    customer_id SERIAL PRIMARY KEY,
-    customer_name VARCHAR(100),
-    customer_age INT,
-    income FLOAT
-);
-
-CREATE TABLE cc_detail (
-    transaction_id SERIAL PRIMARY KEY,
-    customer_id INT,
-    annual_fees FLOAT,
-    total_trans_amt FLOAT,
-    interest_earned FLOAT,
-    week_start_date DATE,
-    FOREIGN KEY (customer_id) REFERENCES cust_detail(customer_id)
-);
 
 
-Import CSV into SQL – Used COPY command to load CSV data into the database.
-COPY cust_detail
-from 'C:\Program Files\PostgreSQL\17\cust_add.csv'
-delimiter ','
-csv header 
+# 💳 Credit Card Transaction Analysis & Insights (PostgreSQL + Power BI)
 
-COPY cc_detail
-from 'C:\Program Files\PostgreSQL\17\cust_add.csv'
-delimiter ','
-csv header 
+## 📊 Project Overview
 
-Added 53 weeks of data into the existing table to keep the dashboard automated and up to date.
+This project explores credit card transaction data to uncover insights about customer spending behavior, revenue generation, and card performance.
+The goal was to design a **complete analytics workflow** — from **raw data ingestion (CSV)** to **database structuring (PostgreSQL)** and **interactive reporting (Power BI)** — similar to how analytics teams manage real financial data.
 
-🛠 Step 2: Data Processing & Transformation
-Performed preprocessing in PostgreSQL.
-Handled date formatting for week_start_date.
-Applied business rules for revenue, income, and customer segmentation.
+---
 
-📊 Step 3: DAX Queries in Power BI
-Key measures created for analysis:
-week_num2 = WEEKNUM('public cc_detail'[week_start_date])
-Revenue = 'public cc_detail'[annual_fees] + 'public cc_detail'[total_trans_amt] + 'public cc_detail'[interest_earned]
+## 🎯 Project Objective
 
-Used SWITCH function for categorization:
-Income Groups (High, Medium, Low)
-Age Groups
-Card Categories (Gold, Silver, Blue, Platinum)
+To analyze credit card transactions and understand:
 
-🌟 What the dashboard shows:
+* Revenue and interest trends
+* Card category performance (Gold, Silver, Blue, Platinum)
+* Customer spending by income group, education, and occupation
+* Channel usage (Swipe, Chip, Online)
+* Quarterly and weekly transaction insights
 
-40–50 age group, high-income professionals, and graduates contribute the highest revenue.
-Swipe and online transactions lead in usage compared to chip-based payments.
-Texas, New York, and California stand out as top-performing states.
+---
 
-🚀 Tech Stack
+## 🧩 Tools & Technologies
 
-Database: PostgreSQL
-Visualization Tool: Power BI
-Languages: SQL, DAX
-Data Source: CSV files
+| Tool            | Purpose                                                |
+| --------------- | ------------------------------------------------------ |
+| **PostgreSQL**  | Database creation, structured data storage, and import |
+| **Power BI**    | Interactive dashboarding and DAX-based KPI computation |
+| **Excel / CSV** | Raw data preparation                                   |
 
-📷 Dashboard Snapshot
+---
 
+## ⚙️ Data Workflow
 
+### 🪣 Step 1: Data Sourcing / Ingestion
 
-💡 Key Learning
+I started with **raw CSV files** — my foundation for building this analytical “house.”
+Using **PostgreSQL**, I:
 
-This project was not just about building visuals but about end-to-end data handling:
-From data import → SQL processing → DAX calculations → insightful dashboards.
-Learned how to automate reporting by continuously feeding new data into PostgreSQL.
+* Created structured tables using simple SQL commands like `CREATE TABLE`.
+* Loaded data efficiently using the `\COPY` command.
+* Ensured all files were stored and related consistently.
 
-🙌 Feedback & Collaboration
-I’d love your feedback on this project. Feel free to fork, raise issues, or share suggestions!
+> 🧠 **Key Learning:** Even simple commands can create a powerful data backbone when structured correctly.
+
+---
+
+### 🧹 Step 2: Data Cleaning & Transformation
+
+Within the PostgreSQL environment, I focused on **data accuracy and reliability**:
+
+* Verified column data types (e.g., `DATE`, `NUMERIC`, `VARCHAR`).
+* Fixed date formatting issues (converted `DD-MM-YYYY` → `YYYY-MM-DD`).
+* Checked data consistency before visualization.
+* Appended **Week 53 data** into the main transaction table to automate continuous reporting.
+
+> ⚙️ SQL Focus: Table creation, data import using COPY, column validation, and basic transformations.
+
+---
+
+### 🧠 Step 3: Dashboard Development in Power BI
+
+After ensuring clean and structured data, I connected PostgreSQL to Power BI to bring the story to life:
+
+* Designed **DAX measures** for total revenue, total interest, transaction count, and card category performance.
+* Used **slicers and filters** for dynamic interaction (by Gender, Quarter, Card Type, and Income Level).
+* Built a consistent **data model** to ensure accurate drill-down and filtering.
+* Refreshed the dashboard automatically after appending new week data.
+
+---
+
+## 📈 Key Insights
+
+* 💰 **Blue Card** category generated the highest revenue (₹47M+).
+* 📆 **Q4** saw the highest transaction count and revenue growth.
+* 🧑‍🎓 **Graduates and businessmen** drove the majority of card usage.
+* 🛍️ **Bills, fuel, and entertainment** were the top spending categories.
+* 💳 **Swipe mode** dominated, indicating higher in-person transaction preference.
+
+---
+
+## 🧩 Learnings
+
+* Practiced **end-to-end BI workflow** from raw CSV to dashboard.
+* Improved database skills through **PostgreSQL table management and import automation**.
+* Understood the importance of **data validation before visualization**.
+* Enhanced Power BI storytelling with DAX and dynamic visuals.
+
+---
+
+## 🚀 Future Scope
+
+* Add Python or Power Automate layer for predictive analysis & scheduled refresh.
+* Integrate additional demographic datasets for deeper segmentation.
+* Introduce benchmarking visuals for comparing customer categories.
+
+---
+
+## 📂 Repository Structure
+
+```
+📁 Credit-Card-Transaction-Analysis
+│
+├── data/
+│   ├── credit_card_transactions.csv
+│   ├── customers.csv
+│
+├── sql/
+│   ├── table_creation.sql
+│   ├── copy_import_command.sql
+│
+├── dashboard/
+│   ├── Credit_Card_Transaction_Report.pbix
+│   ├── Dashboard_Screenshots/
+│
+├── README.md
+```
+
+---
+
+## 👩‍💻 About Me
+
+**Nikita Palaria**
+MBA (Finance & Business Analytics) | Data & Business Analytics Enthusiast
+
+📊 Skilled in Power BI, Tableau, Excel, and SQL
+💡 Passionate about building meaningful insights from real-world data
+📍 Based in Uttarakhand
+
+**Connect:**
+🔗 [LinkedIn](https://linkedin.com/in/nikita-palaria)
+💻 [GitHub](https://github.com/NikitaPalaria)
+
+---
+
+⭐ *If you found this project insightful, don’t forget to star the repo!*
+
