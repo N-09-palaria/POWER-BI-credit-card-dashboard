@@ -96,6 +96,14 @@ After ensuring clean and structured data, I connected PostgreSQL to Power BI to 
 * Introduce benchmarking visuals for comparing customer categories.
 
 ---
+## 📸 Dashboard Preview
+
+### 1️⃣ Credit Card Weekly Performance Dashboard
+![Credit Card Dashboard](dashboard/Dashboard_Screenshots/credit_card_overview.png)
+
+### 2️⃣ Customer Segment & Spending Insights
+![Customer Insights](dashboard/Dashboard_Screenshots/customer_insights.png)
+
 
 ## 📂 Repository Structure
 
@@ -126,7 +134,7 @@ MBA (Finance & Business Analytics) | Data & Business Analytics Enthusiast
 
 📊 Skilled in Power BI, Tableau, Excel, and SQL
 💡 Passionate about building meaningful insights from real-world data
-📍 Based in Uttarakhand
+📍 Greater Noida 
 
 **Connect:**
 🔗 [LinkedIn](https://linkedin.com/in/nikita-palaria)
