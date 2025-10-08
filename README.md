@@ -102,7 +102,7 @@ After ensuring clean and structured data, I connected PostgreSQL to Power BI to 
 ![Credit Card Dashboard](dashboard/Dashboard_Screenshots/credit_card_overview.png)
 
 ### 2️⃣ Customer Segment & Spending Insights
-![Customer Insights](dashboard/Dashboard_Screenshots/customer_insights.png)
+![Customer Insights](Screenshot 2025-09-20 204807.png)
 
 
 ## 📂 Repository Structure
